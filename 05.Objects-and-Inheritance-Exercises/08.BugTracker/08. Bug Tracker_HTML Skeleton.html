@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bug Tracker</title>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+    <style>
+        #wrapper {
+            width: 800px;
+            border: 1px solid black;
+        }
+        #titlebar {
+            background-color: beige;
+            font-size: 2em;
+            padding: 0.5em;
+        }
+        .report {
+            margin: 1em;
+            border:1px solid black;
+            width: 400px;
+        }
+        .report .title {
+            background-color: cornflowerblue;
+            color: white;
+            padding: 0.25em;
+            position: relative;
+        }
+        .report .body p {
+            margin: 0.5em;
+        }
+        .report .title .status {
+            display: inline-block;
+            right: 0;
+            position: absolute;
+            margin-right: 0.5em;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="titlebar">Bug tracker</div>
+    <div id="content">
+
+    </div>
+</div>
+<script src="08.BugTracker.js"></script>
+<script>
+    window.onload = function () {
+        revModule.report("BBB", "Desc1", true, 3);
+        revModule.report("AAA", "Desc2", true, 4);
+        revModule.report("CCC", "Desc3", true, 5);
+        revModule.setStatus(0, "In Progress");
+        revModule.setStatus(1, "Closed");
+        revModule.setStatus(2, "In Progress");
+        // revModule.remove(1);
+        // revModule.remove(0);
+        // revModule.remove(2);
+        revModule.sort();
+    }
+</script>
+</body>
+</html>
